@@ -1,9 +1,19 @@
 package vn.dataguard.dequi;
 
+import java.lang.ref.Cleaner;
+
 public class ThapHaNoi {
 
     static void main() {
         hanoi(4, "A", "B", "C");
+
+        var cleaner = Cleaner.create();
+        var test = new PowerTest();
+        var cleanable = cleaner.register(test, () -> {
+            System.out.println("Cleaned");
+        });
+        cleanable.clean();
+        test.power(1,2);
     }
 
     public static void hanoi(int n, String nguon, String trungGian, String dich) {
