@@ -47,14 +47,6 @@ public class CircularlyLinkedList <E> {
     }
 
     public void addLast(E e) {
-//        if (isEmpty()) {
-//            tail = new Node<>(e, null);
-//            tail.setNext(tail);
-//        } else {
-//            Node<E> first = tail.getNext();
-//            Node<E> newNode = new Node<>(e, first);
-//            tail.setNext(newNode);
-//        }
         addFirst(e);
         tail = tail.getNext(); // 2 dong nay tuong tu nhu dong tren
     }
